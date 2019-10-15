@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "TextView",
-        "repositoryURL": "https://github.com/msalmonse/TextView.git",
-        "state": {
-          "branch": null,
-          "revision": "d8cfa2b216728ad49a61591a1309ae3b740c8c1a",
-          "version": "0.2.1"
-        }
-      },
-      {
         "package": "URLImage",
         "repositoryURL": "https://github.com/dmytro-anokhin/url-image.git",
         "state": {
