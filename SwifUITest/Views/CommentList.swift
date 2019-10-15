@@ -37,45 +37,51 @@ struct CommentListItem: View {
 
 
 struct CommentList: View {
-    @State var preventDismissal: Bool = false
-    @State var text:String = "Hej hej"
-    @ObservedObject var keyboard = KeyboardResponder()
-    @State var textHeight:CGFloat = 100
-    //@State var textViewState = TextViewState("test")
     @State var comments:[CommentViewModel]
-    fileprivate func calcKeyboardHeight(_ keyboard:KeyboardResponder,_ geometry:GeometryProxy) -> CGFloat {
-        return keyboard.currentHeight == 0 ? 0 : keyboard.currentHeight - geometry.safeAreaInsets.bottom
-    }
     var body: some View {
         GeometryReader { geometry in
             NavigationView() {
                 VStack(spacing: 0) {
                     List() {
                         ForEach(self.comments) { comment in
-                            CommentListItem(comment:comment).onTapGesture {
-                                self.preventDismissal = !self.preventDismissal
-                            }
+                            CommentListItem(comment:comment)
                         }
-                    }.navigationBarTitle("Comments")
-                    Divider().padding(0)
-                    HStack(alignment: .bottom) {
-                        TextView(text: self.$text, height: self.$textHeight)
-                            .frame(minHeight: self.textHeight, maxHeight: self.textHeight)
-                            .padding(10)
-                        Button(action: {
-                            self.text = ""
-                        }) {
-                            Image(systemName: "arrow.right.circle.fill").resizable().frame(width: 40, height: 40, alignment: .bottom).foregroundColor(.blue)
-                        }
-                    }.padding(2)
-                    .background(Color(UIColor.secondarySystemBackground))
-                        .overlay(RoundedRectangle(cornerRadius: 21).stroke(Color(UIColor.separator), lineWidth: 1))
-                    .cornerRadius(21)
-                    .padding(10)
-                }.padding(.bottom, self.calcKeyboardHeight(self.keyboard, geometry))
-                .animation(.easeOut(duration: self.keyboard.animationDuration))
+                    }
+                    BottomTextView(geometry: geometry)
+                }.navigationBarTitle("Comments")
             }
         }
+    }
+}
+
+struct BottomTextView : View {
+    @State var geometry:GeometryProxy
+    @ObservedObject var keyboard = KeyboardResponder()
+    @State var text:String = ""
+    @State var textHeight:CGFloat = 20
+    fileprivate func calcKeyboardHeight(_ keyboard:KeyboardResponder,_ geometry:GeometryProxy) -> CGFloat {
+        return keyboard.currentHeight == 0 ? 0 : keyboard.currentHeight - geometry.safeAreaInsets.bottom
+    }
+    var body: some View {
+        VStack(spacing: 0) {
+            Divider().padding(0)
+            HStack(alignment: .bottom) {
+                TextView(text: self.$text, height: self.$textHeight,viewHeight: geometry.size.height)
+                    .frame(minHeight: self.textHeight, maxHeight: self.textHeight)
+                    .padding(10)
+                Button(action: {
+                    self.text = ""
+                }) {
+                    Image(systemName: "arrow.right.circle.fill").resizable().frame(width: 40, height: 40, alignment: .bottom).foregroundColor(.blue)
+                }
+            }
+            .padding(2)
+            .background(Color(UIColor.secondarySystemBackground))
+            .overlay(RoundedRectangle(cornerRadius: 21).stroke(Color(UIColor.separator), lineWidth: 1))
+            .cornerRadius(21)
+            .padding(10)
+            .animation(.easeOut(duration: self.keyboard.animationDuration))
+        }.padding(.bottom, self.calcKeyboardHeight(self.keyboard, geometry))
     }
 }
 
