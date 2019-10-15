@@ -59,11 +59,9 @@ struct CommentList: View {
                     }.navigationBarTitle("Comments")
                     Divider().padding(0)
                     HStack(alignment: .bottom) {
-                        //TextView(self.textViewState)
                         TextView(text: self.$text, height: self.$textHeight)
                             .frame(minHeight: self.textHeight, maxHeight: self.textHeight)
                             .padding(10)
-                            .lineLimit(0)
                         Button(action: {
                             self.text = ""
                         }) {

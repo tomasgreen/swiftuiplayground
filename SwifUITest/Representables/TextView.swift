@@ -34,23 +34,29 @@ struct TextView: UIViewRepresentable {
         }
         func textViewDidChange(_ textView: UITextView) {
             if host.text != textView.text {
-                triggerUpdate(using: textView)
+
             }
+            triggerUpdate(using: host.view)
         }
         func triggerUpdate(using view:UITextView) {
-            guard let text = view.text else {
-                return
-            }
-            guard let font = view.font else {
-                return
-            }
-            let height = text.height(constraintedWidth: view.contentSize.width, font: font)
+//            guard let text = view.text else {
+//                return
+//            }
+//            guard let font = view.font else {
+//                return
+//            }
+            //let h2 = text.height(constraintedWidth: view.contentSize.width, font: font)
             let h = (UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.frame.height ?? 480) * 0.3
+            //let height = view.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize,withHorizontalFittingPriority: UILayoutPriority.defaultHigh, verticalFittingPriority: UILayoutPriority.defaultHigh).height
+            let height = view.systemLayoutSizeFitting(CGSize(width: view.contentSize.width, height: h), withHorizontalFittingPriority: UILayoutPriority.defaultLow, verticalFittingPriority: UILayoutPriority.defaultHigh).height
+            //print(h2,height,view.contentSize,view.bounds,view.frame)
+            
             if height >= h {
-                host.update(height: h,scrollEnabled: true)
+                host.update(height: h, scrollEnabled: true)
             } else {
-                host.update(height: height,scrollEnabled: false)
+                host.update(height: height,scrollEnabled: true)
             }
+            
         }
     }
 
@@ -59,13 +65,20 @@ struct TextView: UIViewRepresentable {
     let view = UITextView()
     func makeUIView(context: Context) -> UITextView {
         view.text = self.text
-        view.isScrollEnabled = false
+        view.isScrollEnabled = true
         view.isUserInteractionEnabled = true
         view.alwaysBounceHorizontal = false
         view.showsHorizontalScrollIndicator = false
         view.backgroundColor = UIColor.clear
         view.font = UIFont.systemFont(ofSize: 16)
         view.delegate = context.coordinator
+//        view.textContainer.lineBreakMode = .byWordWrapping
+//        view.textContainer.widthTracksTextView = true
+//        view.textContainer.heightTracksTextView = true
+        view.contentInset = .zero
+        view.textContainerInset = .zero
+        view.clipsToBounds = false
+        height = view.font?.lineHeight ?? 20
         return view
     }
     func update(height:CGFloat,scrollEnabled:Bool) {
@@ -79,7 +92,7 @@ struct TextView: UIViewRepresentable {
         }
     }
     func updateUIView(_ uiView: UITextView, context: Context) {
-        context.coordinator.triggerUpdate(using: view)
+        //context.coordinator.triggerUpdate(using: self.view)
     }
     func makeCoordinator() -> TextView.Coordinator {
         return Coordinator(host: self)
