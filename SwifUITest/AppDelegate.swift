@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableView.appearance().separatorColor = .clear
         UITableView.appearance().separatorStyle = .none
         //UITableView.appearance().backgroundColor = .systemGroupedBackground
+//        OpenGraph.fetch(url: URL(string: "https://www.svt.se/nyheter/utrikes/turkiets-offensiv-i-syrien-fortsatter")!) { result in
+//            switch result {
+//            case .success(let og):
+//                print(og[.title]) // => og:title of the web site
+//                print(og[.type])  // => og:type of the web site
+//                print(og[.image]) // => og:image of the web site
+//                print(og[.url])   // => og:url of the web site
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         return true
     }
 

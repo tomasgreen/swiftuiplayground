@@ -13,11 +13,17 @@ struct ContentView: View {
         TabView {
             NavigationView {
                 NewsList()
-            }.tabItem { Text("News") }.tag(1)
+            }.tabItem {
+                Text("News")
+                Image(systemName: "text.quote").imageScale(.large)
+            }.tag(1)
             NavigationView {
                 ChatList()
-            }.tabItem { Text("Chats") }.tag(2)
-        }.accentColor(Color.orange)
+            }.tabItem {
+                Text("Chats")
+                Image(systemName: "bubble.middle.bottom.fill").imageScale(.large)
+            }.tag(2)
+        }.accentColor(Color.blue)
         .edgesIgnoringSafeArea(.top)
     }
 }

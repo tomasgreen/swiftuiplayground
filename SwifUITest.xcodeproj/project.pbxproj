@@ -15,6 +15,12 @@
 		0E5B643523545D78005118E0 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0E5B643423545D78005118E0 /* URLImage */; };
 		0E5B64372354711E005118E0 /* ViewCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5B64362354711E005118E0 /* ViewCalculator.swift */; };
 		0E5F0E9B2354F6100055A52F /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E729631234FAA5200CE1B72 /* TextView.swift */; };
+		0E5F0E9D2355EFC10055A52F /* BottomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F0E9C2355EFC10055A52F /* BottomTextView.swift */; };
+		0E5F0EA42355FB590055A52F /* OpenGraphParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F0E9F2355FB590055A52F /* OpenGraphParseError.swift */; };
+		0E5F0EA52355FB590055A52F /* OpenGraphParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F0EA02355FB590055A52F /* OpenGraphParser.swift */; };
+		0E5F0EA62355FB590055A52F /* OpenGraphResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F0EA12355FB590055A52F /* OpenGraphResponseError.swift */; };
+		0E5F0EA72355FB590055A52F /* OpenGraphMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F0EA22355FB590055A52F /* OpenGraphMetadata.swift */; };
+		0E5F0EA82355FB590055A52F /* OpenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5F0EA32355FB590055A52F /* OpenGraph.swift */; };
 		0E68F5EA234CCED4003914DD /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68F5E9234CCED4003914DD /* ArticleView.swift */; };
 		0E68F5EC234DB0A0003914DD /* CommentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68F5EB234DB0A0003914DD /* CommentList.swift */; };
 		0E68F5EE234DB34E003914DD /* DismissGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68F5ED234DB34E003914DD /* DismissGuardian.swift */; };
@@ -39,6 +45,12 @@
 		0E5B643123544BD2005118E0 /* articles.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = articles.json; sourceTree = "<group>"; };
 		0E5B64362354711E005118E0 /* ViewCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCalculator.swift; sourceTree = "<group>"; };
 		0E5B643A23548FF5005118E0 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		0E5F0E9C2355EFC10055A52F /* BottomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTextView.swift; sourceTree = "<group>"; };
+		0E5F0E9F2355FB590055A52F /* OpenGraphParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParseError.swift; sourceTree = "<group>"; };
+		0E5F0EA02355FB590055A52F /* OpenGraphParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParser.swift; sourceTree = "<group>"; };
+		0E5F0EA12355FB590055A52F /* OpenGraphResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphResponseError.swift; sourceTree = "<group>"; };
+		0E5F0EA22355FB590055A52F /* OpenGraphMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphMetadata.swift; sourceTree = "<group>"; };
+		0E5F0EA32355FB590055A52F /* OpenGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraph.swift; sourceTree = "<group>"; };
 		0E68F5E9234CCED4003914DD /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		0E68F5EB234DB0A0003914DD /* CommentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentList.swift; sourceTree = "<group>"; };
 		0E68F5ED234DB34E003914DD /* DismissGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissGuardian.swift; sourceTree = "<group>"; };
@@ -78,6 +90,7 @@
 				0E68F5EB234DB0A0003914DD /* CommentList.swift */,
 				0EB5DCC3234C86D2002F21A6 /* ChatList.swift */,
 				0EB5DCC1234C869E002F21A6 /* NewsList.swift */,
+				0E5F0E9C2355EFC10055A52F /* BottomTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,6 +134,18 @@
 			path = SampleData;
 			sourceTree = "<group>";
 		};
+		0E5F0E9E2355FB4B0055A52F /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				0E5F0EA32355FB590055A52F /* OpenGraph.swift */,
+				0E5F0EA22355FB590055A52F /* OpenGraphMetadata.swift */,
+				0E5F0E9F2355FB590055A52F /* OpenGraphParseError.swift */,
+				0E5F0EA02355FB590055A52F /* OpenGraphParser.swift */,
+				0E5F0EA12355FB590055A52F /* OpenGraphResponseError.swift */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 		0EB5DC9F234C80CD002F21A6 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +165,7 @@
 		0EB5DCAA234C80CD002F21A6 /* SwifUITest */ = {
 			isa = PBXGroup;
 			children = (
+				0E5F0E9E2355FB4B0055A52F /* Libraries */,
 				0E5B643023544BC2005118E0 /* SampleData */,
 				0E420F342350C1450087C3B2 /* Representables */,
 				0E420F332350C13F0087C3B2 /* Misc */,
@@ -249,6 +275,7 @@
 				0EB5DCC2234C869E002F21A6 /* NewsList.swift in Sources */,
 				0E5B64372354711E005118E0 /* ViewCalculator.swift in Sources */,
 				0E420F3A2350C6F10087C3B2 /* API.swift in Sources */,
+				0E5F0EA52355FB590055A52F /* OpenGraphParser.swift in Sources */,
 				0E68F5EA234CCED4003914DD /* ArticleView.swift in Sources */,
 				0EB5DCAE234C80CD002F21A6 /* SceneDelegate.swift in Sources */,
 				0E420F382350C58A0087C3B2 /* User.swift in Sources */,
@@ -256,9 +283,14 @@
 				0EB5DCC8234CA4F9002F21A6 /* Article.swift in Sources */,
 				0E68F5EE234DB34E003914DD /* DismissGuardian.swift in Sources */,
 				0E420F362350C35E0087C3B2 /* Comment.swift in Sources */,
+				0E5F0EA42355FB590055A52F /* OpenGraphParseError.swift in Sources */,
 				0EB5DCC0234C8324002F21A6 /* DarkModeFix.swift in Sources */,
+				0E5F0EA62355FB590055A52F /* OpenGraphResponseError.swift in Sources */,
 				0E13042F234F0BF700F18A87 /* KeyboardResponder.swift in Sources */,
+				0E5F0EA72355FB590055A52F /* OpenGraphMetadata.swift in Sources */,
 				0EB5DCB0234C80CD002F21A6 /* ContentView.swift in Sources */,
+				0E5F0EA82355FB590055A52F /* OpenGraph.swift in Sources */,
+				0E5F0E9D2355EFC10055A52F /* BottomTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
